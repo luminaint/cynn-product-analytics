@@ -1,9 +1,0 @@
-[33mcommit 0f2e42d1ccda8a3b16e2f8d64f2c23add9acd22d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
-Author: Shiv Patel <spatel2215@gmail.com>
-Date:   Sun Sep 27 17:47:07 2026 -0500
-
-    Document source systems, designed imperfections, and sealed answer-key decision
-
- docs/data_dictionary.md | 0
- docs/data_quality.md    | 0
- 2 files changed, 0 insertions(+), 0 deletions(-)

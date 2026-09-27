@@ -1,0 +1,14 @@
+# Packages for this project. Install into the venv with:
+#   python -m pip install -r requirements.txt
+# Versions are pinned (==) so every machine, including CI, gets the same toolbox.
+
+# --- Packages we use directly ---
+duckdb==1.5.5          # the database engine: our warehouse lives in one DuckDB file
+numpy==2.5.3           # fast random numbers for the synthetic data generator
+pandas==3.0.6          # tables in Python, used when generating data
+PyYAML==6.0.3          # reads sql/manifest.yml, the pipeline's run order
+
+# --- Installed automatically because pandas needs them ---
+python-dateutil==2.9.0.post0
+six==1.17.0
+tzdata==2026.4

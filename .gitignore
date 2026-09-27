@@ -1,0 +1,16 @@
+# --- Python ---
+# The virtual environment: rebuilt from requirements.txt, never committed
+.venv/
+# Python's auto-generated cache files
+__pycache__/
+*.pyc
+
+# --- Generated data: rebuilt by run_all.py ---
+data/raw/
+data/exports/
+data/warehouse.duckdb
+data/warehouse.duckdb.wal
+
+# --- Editor / OS clutter ---
+.vscode/
+Thumbs.db

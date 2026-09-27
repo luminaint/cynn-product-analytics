@@ -39,14 +39,21 @@ Environment setup complete. Repo is on GitHub.
 | 11 | Pin every package version, including dependencies | Same toolbox on every machine and in CI |
 | 12 | Project lives in C:\dev (no spaces, no OneDrive) | Avoids path bugs and file-locking |
 | 13 | Merged GitHub's LICENSE commit instead of force-pushing | Keeps the license; force-push deletes the remote's history |
+| 14 | Planted stories go in a sealed file (hidden_effects.py) + answer key, written by Claude; I don't open them until my analysis is done | Keeps the analysis a blind investigation |
+| 15 | 28 designed imperfections (see data_quality.md); added received_at to events and livemode to payments | Each has a business cause and breaks a named KPI |
 ## Open issues
 - Answer-key secrecy: I type the data generator myself, so I would see the
   planted patterns while typing. Decide how to handle this before data generation.
+  - Sealed files (src/generate/hidden_effects.py, docs/answer_key_synthetic.md) are
+  delivered by Claude at the data-generation step. Save them without opening.
+  If a new chat starts before they exist, Claude designs them fresh; I must not see them.
 
 ## Next step
 Push the repo to GitHub. Then design data imperfections (spec section 5.2).
 Decide how to keep the answer key secret (see Open issues).
 Then design data imperfections (5.2) and planted stories (5.3).
+Start the data generator in src/generate/: first piece is the config (seed, dates, sizes).
+
 
 ## How to resume work
 1. Open VS Code in C:\dev\product-analytics-project

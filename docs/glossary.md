@@ -22,3 +22,7 @@ Plain language first, then the technical term.
 | Push | Upload my commits to the remote. |
 | Pull | Download commits from the remote and combine them with mine. |
 | Merge | A commit that joins two lines of history into one. |
+| MRR vs cash revenue | MRR = what customers are subscribed to pay per month. Cash revenue = money actually received (after failures, refunds, annual lump sums). |
+| Business key | The ID a source system uses for a thing, e.g. payment_id. Should be unique; must be tested. |
+| Orphan key | A reference to something that doesn't exist, e.g. an event for a deleted user. |
+| Late-arriving data | Records that show up after the period they belong to, e.g. offline phone events. |

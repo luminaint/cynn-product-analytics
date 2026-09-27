@@ -1,28 +1,38 @@
 # Project State
-
+ 
 _Last updated: 2026-09-27_
-
+ 
 ## Status
-Environment setup complete. Repo is on GitHub.
-
+Design and environment setup complete. Repo is on GitHub.
+Build approach: thin slice first (Round 1 end to end, then Rounds 2 and 3).
+ 
 ## Done
 - Design approved: company, business model, stakeholders, headline problem,
   AARRR KPIs, funnel steps and rules, source systems, fact grains
+- 28 data imperfections designed (docs/data_quality.md)
 - Python 3.13.5 venv in `.venv`, created with `py -3.13` (not Anaconda)
 - `requirements.txt` with all versions pinned
 - VS Code connected to the venv
-- Git configured; repo initialized; `.gitignore` in place
-- GitHub repo: https://github.com/luminaint/cynn-product-analytics (public, MIT license)
-
+- Git configured; GitHub repo: https://github.com/luminaint/cynn-product-analytics (public, MIT license)
 ## File tree
     product-analytics-project/
     ├── .venv/              (ignored by Git)
     ├── docs/
     │   ├── PROJECT_STATE.md
+    │   ├── data_dictionary.md
+    │   ├── data_quality.md
     │   └── glossary.md
     ├── .gitignore
+    ├── LICENSE
     └── requirements.txt
-
+ 
+## Build rounds
+| Round | Sources | Delivers |
+|---|---|---|
+| 1 | app_users, events, billing_customers, subscriptions, payments, refunds, plan_prices, app_releases | Bronze, Silver, Gold; user funnel; activation; retention; engagement; MRR, churn, ARPU; tests; CI |
+| 2 | installs, marketing_spend | Install-to-signup funnel; channel mix; CAC, LTV:CAC, payback; root cause; dashboard; memo |
+| 3 | referrals, support_tickets, surveys | Stretch KPIs: K-factor, NPS, CSAT |
+ 
 ## Key decisions
 | # | Decision | Why |
 |---|---|---|
@@ -41,21 +51,18 @@ Environment setup complete. Repo is on GitHub.
 | 13 | Merged GitHub's LICENSE commit instead of force-pushing | Keeps the license; force-push deletes the remote's history |
 | 14 | Planted stories go in a sealed file (hidden_effects.py) + answer key, written by Claude; I don't open them until my analysis is done | Keeps the analysis a blind investigation |
 | 15 | 28 designed imperfections (see data_quality.md); added received_at to events and livemode to payments | Each has a business cause and breaks a named KPI |
+| 16 | Thin slice first: build Round 1 end to end before Rounds 2-3 | Presentable project at about the halfway point |
+| 17 | MRR is calculated from subscriptions x plan price, not from payments | MRR = what customers are subscribed to pay; cash revenue is a separate metric |
+ 
 ## Open issues
-- Answer-key secrecy: I type the data generator myself, so I would see the
-  planted patterns while typing. Decide how to handle this before data generation.
-  - Sealed files (src/generate/hidden_effects.py, docs/answer_key_synthetic.md) are
+- Sealed files (src/generate/hidden_effects.py, docs/answer_key_synthetic.md) are
   delivered by Claude at the data-generation step. Save them without opening.
   If a new chat starts before they exist, Claude designs them fresh; I must not see them.
-
 ## Next step
-Push the repo to GitHub. Then design data imperfections (spec section 5.2).
-Decide how to keep the answer key secret (see Open issues).
-Then design data imperfections (5.2) and planted stories (5.3).
-Start the data generator in src/generate/: first piece is the config (seed, dates, sizes).
-
-
+Round 1 data generator: create src/generate/ and write the config (seed, date window, sizes).
+ 
 ## How to resume work
 1. Open VS Code in C:\dev\product-analytics-project
 2. Open a terminal; check the prompt shows (.venv) and `python --version` says 3.13.5
 3. If not: `.\.venv\Scripts\Activate.ps1`
+4. Keep File > Auto Save turned on, so Git always sees what's on screen

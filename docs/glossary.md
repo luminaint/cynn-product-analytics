@@ -18,4 +18,7 @@ Plain language first, then the technical term.
 | .gitignore | A list of files and folders Git should never save. |
 | Untracked | A file Git can see but isn't saving history for yet. |
 | Staging area | The files you've picked (`git add`) to go into the next commit. |
-
+| Remote | A nickname for an online copy of the repo. `origin` = my GitHub copy. |
+| Push | Upload my commits to the remote. |
+| Pull | Download commits from the remote and combine them with mine. |
+| Merge | A commit that joins two lines of history into one. |

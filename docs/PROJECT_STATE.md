@@ -3,7 +3,7 @@
 _Last updated: 2026-09-27_
 
 ## Status
-Design approved. Environment setup nearly done.
+Environment setup complete. Repo is on GitHub.
 
 ## Done
 - Design approved: company, business model, stakeholders, headline problem,
@@ -12,6 +12,7 @@ Design approved. Environment setup nearly done.
 - `requirements.txt` with all versions pinned
 - VS Code connected to the venv
 - Git configured; repo initialized; `.gitignore` in place
+- GitHub repo: https://github.com/luminaint/cynn-product-analytics (public, MIT license)
 
 ## File tree
     product-analytics-project/
@@ -37,13 +38,15 @@ Design approved. Environment setup nearly done.
 | 10 | Censored users excluded from denominators; headline funnel uses cohorts at least 60 days old | Otherwise recent cohorts look falsely worse |
 | 11 | Pin every package version, including dependencies | Same toolbox on every machine and in CI |
 | 12 | Project lives in C:\dev (no spaces, no OneDrive) | Avoids path bugs and file-locking |
-
+| 13 | Merged GitHub's LICENSE commit instead of force-pushing | Keeps the license; force-push deletes the remote's history |
 ## Open issues
 - Answer-key secrecy: I type the data generator myself, so I would see the
   planted patterns while typing. Decide how to handle this before data generation.
 
 ## Next step
 Push the repo to GitHub. Then design data imperfections (spec section 5.2).
+Decide how to keep the answer key secret (see Open issues).
+Then design data imperfections (5.2) and planted stories (5.3).
 
 ## How to resume work
 1. Open VS Code in C:\dev\product-analytics-project

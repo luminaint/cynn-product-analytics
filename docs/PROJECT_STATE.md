@@ -1,3 +1,5 @@
+
+Project state · MD
 # Project State
  
 _Last updated: 2026-09-27_
@@ -14,6 +16,7 @@ Build approach: thin slice first (Round 1 end to end, then Rounds 2 and 3).
 - `requirements.txt` with all versions pinned
 - VS Code connected to the venv
 - Git configured; GitHub repo: https://github.com/luminaint/cynn-product-analytics (public, MIT license)
+- Generator settings file: src/generate/config.py (seed 42, date window, 20,000 users, output folder)
 ## File tree
     product-analytics-project/
     ├── .venv/              (ignored by Git)
@@ -22,6 +25,9 @@ Build approach: thin slice first (Round 1 end to end, then Rounds 2 and 3).
     │   ├── data_dictionary.md
     │   ├── data_quality.md
     │   └── glossary.md
+    ├── src/
+    │   └── generate/
+    │       └── config.py
     ├── .gitignore
     ├── LICENSE
     └── requirements.txt
@@ -59,7 +65,7 @@ Build approach: thin slice first (Round 1 end to end, then Rounds 2 and 3).
   delivered by Claude at the data-generation step. Save them without opening.
   If a new chat starts before they exist, Claude designs them fresh; I must not see them.
 ## Next step
-Round 1 data generator: create src/generate/ and write the config (seed, date window, sizes).
+Round 1 generator: src/generate/users.py (create the clean list of real users).
  
 ## How to resume work
 1. Open VS Code in C:\dev\product-analytics-project
